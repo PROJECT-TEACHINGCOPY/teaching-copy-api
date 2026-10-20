@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Teaching.Copy.Domain\Teaching.Copy.Domain.csproj" />
+    <ProjectReference Include="..\Teaching.Copy.Data\Teaching.Copy.Data.csproj" />
   </ItemGroup>
 
 </Project>
