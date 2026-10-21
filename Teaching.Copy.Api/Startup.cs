@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.EntityFrameworkCore;
+using Teaching.Copy.Data;
 
 namespace teaching.copy.Api
 {
@@ -14,13 +16,6 @@ namespace teaching.copy.Api
         }
 
         public IConfiguration Configuration { get; }
-
-        public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddControllers();
-            services.AddEndpointsApiExplorer();
-            services.AddSwaggerGen();
-        }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
@@ -41,6 +36,17 @@ namespace teaching.copy.Api
             {
                 endpoints.MapControllers();
             });
+        }
+
+        public void ConfigureServices(IServiceCollection services)
+        {
+            services.AddControllers();
+            services.AddEndpointsApiExplorer();
+            services.AddSwaggerGen();
+            services.AddDbContext<StoreContext>(options =>
+                options.UseSqlite(
+                    "Data Source=../Registrar.sqlite",
+                    b => b.MigrationsAssembly("Teaching.Copy.Api")));
         }
     }
 }
