@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Teaching.Copy.Domain", "Tea
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Teaching.Copy.Data", "Teaching.Copy.Data\Teaching.Copy.Data.csproj", "{2051C589-A7BD-409B-A0E8-348FD4D09C2A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Teaching.Copy.Domain.Tests", "tests\Teaching.Copy.Domain.Tests\Teaching.Copy.Domain.Tests.csproj", "{A203A79B-D85F-471D-A85F-D499BE616DB0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,18 @@ Global
 		{2051C589-A7BD-409B-A0E8-348FD4D09C2A}.Release|x64.Build.0 = Release|Any CPU
 		{2051C589-A7BD-409B-A0E8-348FD4D09C2A}.Release|x86.ActiveCfg = Release|Any CPU
 		{2051C589-A7BD-409B-A0E8-348FD4D09C2A}.Release|x86.Build.0 = Release|Any CPU
+		{A203A79B-D85F-471D-A85F-D499BE616DB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A203A79B-D85F-471D-A85F-D499BE616DB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A203A79B-D85F-471D-A85F-D499BE616DB0}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{A203A79B-D85F-471D-A85F-D499BE616DB0}.Debug|x64.Build.0 = Debug|Any CPU
+		{A203A79B-D85F-471D-A85F-D499BE616DB0}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A203A79B-D85F-471D-A85F-D499BE616DB0}.Debug|x86.Build.0 = Debug|Any CPU
+		{A203A79B-D85F-471D-A85F-D499BE616DB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A203A79B-D85F-471D-A85F-D499BE616DB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A203A79B-D85F-471D-A85F-D499BE616DB0}.Release|x64.ActiveCfg = Release|Any CPU
+		{A203A79B-D85F-471D-A85F-D499BE616DB0}.Release|x64.Build.0 = Release|Any CPU
+		{A203A79B-D85F-471D-A85F-D499BE616DB0}.Release|x86.ActiveCfg = Release|Any CPU
+		{A203A79B-D85F-471D-A85F-D499BE616DB0}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
