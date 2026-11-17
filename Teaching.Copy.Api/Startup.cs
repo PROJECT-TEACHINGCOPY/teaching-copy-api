@@ -30,6 +30,8 @@ namespace teaching.copy.Api
 
             app.UseRouting();
 
+            app.UseCors();
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -47,6 +49,17 @@ namespace teaching.copy.Api
                 options.UseSqlite(
                     "Data Source=../Registrar.sqlite",
                     b => b.MigrationsAssembly("Teaching.Copy.Api")));
+
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(policy =>
+                {
+                    policy
+                        .WithOrigins("http://localhost:3000")
+                        .AllowAnyHeader()
+                        .AllowAnyMethod();
+                });
+            });
         }
     }
 }
