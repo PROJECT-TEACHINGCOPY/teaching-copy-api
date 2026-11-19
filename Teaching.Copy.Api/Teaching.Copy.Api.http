@@ -4,3 +4,8 @@ GET {{Teaching.Copy.Api_HostAddress}}/weatherforecast/
 Accept: application/json
 
 ###
+### Get products so you can find a valid ID
+GET {{Teaching.Copy.Api_HostAddress}}/catalog
+
+### Attempt deletion without a token
+DELETE {{Teaching.Copy.Api_HostAddress}}/catalog/3

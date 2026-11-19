@@ -5,6 +5,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Teaching.Copy.Data;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
+using Teaching.Copy.Api.Security;
 
 namespace teaching.copy.Api
 {
@@ -32,6 +35,8 @@ namespace teaching.copy.Api
 
             app.UseCors();
 
+            app.UseAuthentication();
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -42,7 +47,34 @@ namespace teaching.copy.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
+            var authority = Configuration["Auth0:Authority"];
+            var audience = Configuration["Auth0:Audience"];
+
             services.AddControllers();
+
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(options =>
+                {
+                    options.Authority = authority;
+                    options.Audience = audience;
+                });
+
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("delete:catalog", policy =>
+                {
+                    policy.RequireAuthenticatedUser();
+
+                    policy.Requirements.Add(
+                        new HasScopeRequirements(
+                            "delete:catalog",
+                            authority!
+                        )
+                    );
+                });
+            });
+
+            services.AddSingleton<IAuthorizationHandler, HasScopeHandler>();
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
             services.AddDbContext<StoreContext>(options =>

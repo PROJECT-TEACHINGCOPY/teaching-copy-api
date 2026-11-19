@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Teaching.Copy.Domain.Catalog;
 using Teaching.Copy.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Teaching.Copy.Api.Controllers
 {
@@ -78,6 +79,7 @@ namespace Teaching.Copy.Api.Controllers
         }
 
         [HttpDelete("{id:int}")]
+        [Authorize("delete:catalog")]
         public IActionResult DeleteItem(int id)
         {
             var item = _db.Items.Find(id);
